@@ -16,7 +16,10 @@ class App extends Component {
         <NavBar />
         <div className="content">
           <Switch>
-            <Route path="/products" component={Products} />
+            <Route
+              path="/products"
+              render={(props) => <Products sortBy="newest" {...props} />}
+            />
             <Route path="/posts" component={Posts} />
             <Route path="/admin" component={Dashboard} />
             <Route path="/" component={Home} />
@@ -42,4 +45,33 @@ assets it only updates what we have in the content area.
 
 The Link itself have the anchor in it, with a function that removes the default behaviour of
 anchor (tag). You can check it via going to React tab (in console of browser)
+*/
+
+/*
+***ROUTE PROPS***
+<Route> is a wrapper around the component that we pass in it
+<Route path="/" component={WrapperAroundThis-Component} &
+injects the three route props
+*1: history: {...}
+*2: location: {...}
+*3: match: {...}
+? URL: https://reacttraining.com/react-router/web/api/match
+
+* history: {...} object with use of it, we can send the user or go to the different page
+* location: {...} which represents where the app is now
+* match: {...} which contains the information that how this URL match the path we set in 
+               the <Route>
+*/
+
+/*
+***PASSING PROPS***
+To pass the props in the component i.e <Products sortBy="newest" />
+so how we do in the <Route> ??
+we will use "render" instead of "component"
+* <Render path="/products" render={(props) => <Products sortBy="newest" {...props} />}
+we added the 'props' in the arrow-function, because if we don't add the props we will
+see in the props of <Products> there will be only sortBy. So the three <Route> props will
+disappear. So when we add props (as parameter or argument) in the arrow-function, react will automatically inject those three props there in (HereProps Injected) =>{}. we pass those props using special syntax in JSX  we pass an object here & use the spread operator to spread the props object. So this is something you can do in JSX with this syntax all the properties of the props object will be listed just like the custom prop (sortBy) we passed earlier.
+
+* Special JSX syntax {...props}
 */
