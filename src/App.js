@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './components/navbar';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Products from './components/products';
 import Posts from './components/posts';
 import Home from './components/home';
@@ -14,13 +14,23 @@ class App extends Component {
     return (
       <div>
         <NavBar />
-        <Route path="/products" component={Products} />
-        <Route path="/posts" component={Posts} />
-        <Route path="/admin" component={Dashboard} />
-        <Route path="/" component={Home} />
+        <div className="content">
+          <Switch>
+            <Route path="/products" component={Products} />
+            <Route path="/posts" component={Posts} />
+            <Route path="/admin" component={Dashboard} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </div>
       </div>
     );
   }
 }
 
 export default App;
+
+/*
+exact is one solution <Route path="" exact component{} />
+<Switch></Switch> is another solution. It matches the route. The one matched, rest are ignored.
+So in switch, first place the specific ones and at last the general(s) one(s).
+*/
