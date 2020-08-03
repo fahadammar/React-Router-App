@@ -34,3 +34,12 @@ exact is one solution <Route path="" exact component{} />
 <Switch></Switch> is another solution. It matches the route. The one matched, rest are ignored.
 So in switch, first place the specific ones and at last the general(s) one(s).
 */
+
+/*
+Using the Link, we changed this app to SPA (Single Page Application). 
+In SPA when user navigate from one page to another, the entire reloading whole page with its
+assets it only updates what we have in the content area.
+
+The Link itself have the anchor in it, with a function that removes the default behaviour of
+anchor (tag). You can check it via going to React tab (in console of browser)
+*/
