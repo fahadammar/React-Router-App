@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class ProductDetails extends Component {
   handleSave = () => {
@@ -6,9 +6,10 @@ class ProductDetails extends Component {
   };
 
   render() {
+    const { match } = this.props;
     return (
       <div>
-        <h1>Product Details - </h1>
+        <h1>Product Details - {match.params.id}</h1>
         <button onClick={this.handleSave}>Save</button>
       </div>
     );
