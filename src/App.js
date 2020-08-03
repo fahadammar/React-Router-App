@@ -21,7 +21,7 @@ class App extends Component {
               path="/products"
               render={(props) => <Products sortBy="newest" {...props} />}
             />
-            <Route path="/posts" component={Posts} />
+            <Route path="/posts/:year?/:month?" component={Posts} />
             <Route path="/admin" component={Dashboard} />
             <Route path="/" component={Home} />
           </Switch>
@@ -96,6 +96,6 @@ If we do not provide all the route parameters in the URL, we will get HOME '/' b
 the route parameters are not fully provided hence, path matches only '/'
 So we need to append '?' question-mark with the parameters to make them optional
 i.e /posts/:year?/:month?
-This is the part of the regular expressions in javaScript in regular expressions when you
+This is the part of the regular expressions in javaScript. In regular expressions when you
 append question-mark '?' to an expression it means that expression is optional.
 */
